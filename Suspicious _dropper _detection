@@ -1,0 +1,6 @@
+#!/bin/bash 
+watch_dir="/var/www/html" 
+inotifywait -m $watch_dir -e create | 
+while read path action file; do 
+echo "[ALERT] New file created: $file in $path" 
+done 
